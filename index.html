@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>중국어 단어 시험 오답노트</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>중국어 단어 시험 오답노트</h1>
+    <p>
+      초급 중국어 학습자가 단어, 병음, 뜻을 직접 등록하고
+      자동 시험과 오답 복습을 할 수 있는 웹서비스입니다.
+    </p>
+  </header>
+
+  <nav class="menu">
+    <button onclick="showSection('add-section')">단어 등록</button>
+    <button onclick="showSection('list-section')">단어 목록</button>
+    <button onclick="showSection('quiz-section')">자동 시험</button>
+    <button onclick="showSection('wrong-section')">오답노트</button>
+    <button onclick="showSection('record-section')">학습 기록</button>
+  </nav>
+
+  <main>
+    <!-- 단어 등록 -->
+    <section id="add-section" class="content-section">
+      <h2>1. 단어 등록</h2>
+      <p>중국어 단어, 병음, 한국어 뜻을 입력해주세요.</p>
+
+      <div class="input-box">
+        <label for="chineseInput">중국어 단어</label>
+        <input id="chineseInput" type="text" placeholder="예: 学习" />
+      </div>
+
+      <div class="input-box">
+        <label for="pinyinInput">병음</label>
+        <input id="pinyinInput" type="text" placeholder="예: xuéxí" />
+      </div>
+
+      <div class="input-box">
+        <label for="meaningInput">한국어 뜻</label>
+        <input id="meaningInput" type="text" placeholder="예: 공부하다" />
+      </div>
+
+      <button class="main-button" onclick="addWord()">단어 추가</button>
+      <p id="addMessage" class="message"></p>
+    </section>
+
+    <!-- 단어 목록 -->
+    <section id="list-section" class="content-section hidden">
+      <h2>2. 단어 목록</h2>
+      <p>지금까지 등록한 단어를 확인하고 수정하거나 삭제할 수 있습니다.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>중국어</th>
+            <th>병음</th>
+            <th>뜻</th>
+            <th>관리</th>
+          </tr>
+        </thead>
+        <tbody id="wordTableBody">
+          <!-- app.js에서 단어 목록이 들어감 -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 자동 시험 -->
+    <section id="quiz-section" class="content-section hidden">
+      <h2>3. 자동 시험</h2>
+      <p>한국어 뜻을 보고 중국어 단어와 병음을 입력하세요.</p>
+
+      <button class="main-button" onclick="startQuiz()">시험 시작</button>
+
+      <div id="quizBox" class="quiz-box hidden">
+        <p class="quiz-label">문제</p>
+        <h3 id="quizMeaning"></h3>
+
+        <div class="input-box">
+          <label for="answerChinese">중국어 단어</label>
+          <input id="answerChinese" type="text" placeholder="중국어 단어 입력" />
+        </div>
+
+        <div class="input-box">
+          <label for="answerPinyin">병음</label>
+          <input id="answerPinyin" type="text" placeholder="병음 입력" />
+        </div>
+
+        <button class="main-button" onclick="checkAnswer()">제출</button>
+        <button class="sub-button" onclick="nextQuestion()">다음 문제</button>
+
+        <p id="quizResult" class="message"></p>
+      </div>
+    </section>
+
+    <!-- 오답노트 -->
+    <section id="wrong-section" class="content-section hidden">
+      <h2>4. 오답노트</h2>
+      <p>시험에서 틀린 단어만 모아서 확인하고 다시 시험 볼 수 있습니다.</p>
+
+      <button class="main-button" onclick="startWrongQuiz()">오답 재시험</button>
+      <p id="wrongMessage" class="message"></p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>중국어</th>
+            <th>병음</th>
+            <th>뜻</th>
+            <th>오답 횟수</th>
+          </tr>
+        </thead>
+        <tbody id="wrongTableBody">
+          <!-- app.js에서 오답 목록이 들어감 -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 학습 기록 -->
+    <section id="record-section" class="content-section hidden">
+      <h2>5. 학습 기록</h2>
+      <p>등록한 단어 수, 정답 수, 오답 수, 정답률을 확인할 수 있습니다.</p>
+
+      <div class="record-grid">
+        <div class="record-card">
+          <h3>전체 단어 수</h3>
+          <p id="totalWords">0</p>
+        </div>
+
+        <div class="record-card">
+          <h3>맞힌 문제 수</h3>
+          <p id="correctCount">0</p>
+        </div>
+
+        <div class="record-card">
+          <h3>틀린 문제 수</h3>
+          <p id="wrongCount">0</p>
+        </div>
+
+        <div class="record-card">
+          <h3>정답률</h3>
+          <p id="accuracyRate">0%</p>
+        </div>
+      </div>
+
+      <div class="most-wrong-box">
+        <h3>가장 많이 틀린 단어</h3>
+        <p id="mostWrongWord">아직 기록이 없습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>중국어 초급 학습자를 위한 단어 시험 및 오답노트 웹서비스</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
