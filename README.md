@@ -67,7 +67,7 @@
 
 ## 데모
 
-[데모 보기](github.com/paulLee913/chinese-vocab-quiz)
+[데모 보기](https://paullee913.github.io/chinese-vocab-quiz/)
 
 ## 검증한 내용
 
