@@ -67,7 +67,7 @@
 
 ## 데모
 
-[데모 보기](여기에 GitHub Pages 주소를 넣기)
+[데모 보기](github.com/paulLee913/chinese-vocab-quiz)
 
 ## 검증한 내용
 
