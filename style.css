@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f6f7fb;
+  color: #222;
+  line-height: 1.6;
+}
+
+.site-header {
+  background-color: #2f4f8f;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.site-header h1 {
+  margin: 0 0 10px;
+  font-size: 32px;
+}
+
+.site-header p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu button {
+  border: none;
+  background-color: #e8ecf8;
+  color: #1f3570;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.menu button:hover {
+  background-color: #d4dcf3;
+}
+
+main {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.content-section {
+  background-color: white;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.hidden {
+  display: none;
+}
+
+h2 {
+  margin-top: 0;
+  color: #2f4f8f;
+}
+
+.input-box {
+  margin: 15px 0;
+}
+
+.input-box label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.input-box input {
+  width: 100%;
+  max-width: 420px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.main-button,
+.sub-button {
+  border: none;
+  padding: 10px 16px;
+  margin: 8px 5px 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.main-button {
+  background-color: #2f4f8f;
+  color: white;
+}
+
+.main-button:hover {
+  background-color: #243d70;
+}
+
+.sub-button {
+  background-color: #eeeeee;
+  color: #222;
+}
+
+.sub-button:hover {
+  background-color: #dddddd;
+}
+
+.message {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.success {
+  color: #167a34;
+}
+
+.error {
+  color: #c0392b;
+}
+
+.info {
+  color: #2f4f8f;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: white;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #eef2ff;
+}
+
+td input {
+  width: 95%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.delete-button {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #992d22;
+}
+
+.quiz-box {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #cfd7ef;
+  border-radius: 12px;
+  background-color: #f8faff;
+}
+
+.quiz-label {
+  font-weight: bold;
+  color: #666;
+}
+
+#quizMeaning {
+  font-size: 26px;
+  color: #2f4f8f;
+}
+
+.record-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.record-card {
+  background-color: #f8faff;
+  border: 1px solid #dbe3ff;
+  border-radius: 12px;
+  padding: 18px;
+  text-align: center;
+}
+
+.record-card h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.record-card p {
+  margin: 0;
+  font-size: 26px;
+  font-weight: bold;
+  color: #2f4f8f;
+}
+
+.most-wrong-box {
+  margin-top: 20px;
+  padding: 18px;
+  background-color: #fff8e5;
+  border: 1px solid #f1d38a;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #666;
+}
+
+@media (max-width: 700px) {
+  .site-header h1 {
+    font-size: 24px;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu button {
+    width: 100%;
+  }
+
+  .record-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    font-size: 13px;
+  }
+
+  th,
+  td {
+    padding: 7px;
+  }
+}
